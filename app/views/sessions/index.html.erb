@@ -1,50 +1,41 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>CalenDOC</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+		<br>
+      </div>
+    </header>
+  </div>
 
-  <body>
-  	<section class="hero is-primary is-medium">
-	  <!-- Hero head: will stick at the top -->
-	  <div class="hero-head">
-	    <nav class="navbar">
-	      <div class="container">
-	        <div class="navbar-brand">
-	          <%= link_to 'CalenDOC', root_path, class: "navbar-item" %>
-	          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-	            <span></span>
-	            <span></span>
-	            <span></span>
-	          </span>
-	        </div>
-	        <div id="navbarMenuHeroA" class="navbar-menu">
-              <div class="navbar-end">
-	            <%= link_to "Login", new_appointment_path, class:"navbar-item" %>
-	          </div>
-              <div class="navbar-end">
-	            <%= link_to "Signup", new_appointment_path, class:"navbar-item" %>
-	          </div>
-              <div class="navbar-end">
-	            <%= link_to "Create New Appointment", new_appointment_path, class:"navbar-item" %>
-	          </div>
-	        </div>
-	      </div>
-	    </nav>
-	  </div>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        Welcome to CalenDOC, please create an account or login to schedule your doctor appointments today!
+      </p>
+    </div>
+  </div>
 
-	  <!-- Hero content: will be in the middle -->
-	  <div class="hero-body">
-	    <div class="container has-text-centered">
-	      <h1 class="title">
-	        <%= yield :page_title %>
-	      </h1>
-	    </div>
-	  </div>
-	</section>
-    <%= yield %>
-  </body>
-</html>
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+			<%= link_to "Login", login_path %>
+			<%= link_to "Signup", signup_path %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
