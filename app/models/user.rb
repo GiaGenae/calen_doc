@@ -4,4 +4,6 @@ class User < ApplicationRecord
     has_many :doctors, through: :appointments
 
     has_secure_password
+
+    validates :email, uniqueness: true, presence: true
 end
