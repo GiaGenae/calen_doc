@@ -88,6 +88,7 @@
     <% end %>
     </div>
   </div>
+  <br>
 
   <!-- Hero footer: will stick at the bottom -->
   <div class="hero-foot">
@@ -96,7 +97,7 @@
         <ul>
         <%= link_to "Log Out", logout_path, method: :delete %>
         <%= link_to "New Appointment", new_appointment_path %>
-        My Appointments
+        <%= link_to "My Appointments", appointments_path %>
         </ul>
       </div>
     </nav>
