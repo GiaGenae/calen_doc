@@ -1,0 +1,18 @@
+<%= form_for(@review) do |f|%>
+    <% if params[:doctor_id] %>
+      <%= f.hidden_field :doctor_id %>
+    <% else %>
+      <div>
+        <%= f.label :doctor_id, "Select a Doctor" %>
+        <%= f.collection_select :doctor_id, Doctor.all, :id, :doctor, include_blank: true %>
+      </div>
+    <% end %>
+    <div>
+      <%= f.label :rating %>
+      <%= f.number_field :rating, min:0, max:5 %>
+    <br>
+  
+  
+  
+    <%= f.submit %>
+  <% end %>
