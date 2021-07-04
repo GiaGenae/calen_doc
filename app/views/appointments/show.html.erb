@@ -1,0 +1,47 @@
+<section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+        </a>
+        <span class="navbar-burger" data-target="navbarMenuHeroC">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+    </div>
+  </header>
+</div>
+
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+    <p class="title">
+        Welcome, <%= @user.first_name %>
+    </p>
+    <br>
+    <br>
+    <p class="subtitle">
+        All Appointments
+    </p>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+        <%= link_to "Log Out", logout_path, method: :delete %>
+        <%= link_to "New Appointment", new_appointment_path %>
+        My Appointments
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
