@@ -1,43 +1,13 @@
-  <div class="hero-body">
-    <div class="container has-text-centered">
-    <h2 class="title is-2">
-        <time 
-            datetime="<%= @appointment.date.strftime("%Y-%m-%dT%H:%M") %>"
-            title="<%= @appointment.date.strftime("%Y-%m-%d at %I:%M %p") %>">
-                <%= @appointment.date.strftime("%B %d, %Y") %>
-        </time>
-    </h2>
-    <br>
-    <br>
-    <h3 class="subtitle is-3">
-        <%= @appointment.doctor.specialty%>
-    </h3>
-    <h5 class="subtitle is-5">
-        Dr. <%= @appointment.doctor.first_name%> <%= @appointment.doctor.last_name%> 
-    </h5>
-    <h5 class="subtitle is-5">
-        <time 
-            datetime="<%= @appointment.time.strftime("%Y-%m-%dT%H:%M") %>"
-            title="<%= @appointment.time.strftime("%Y-%m-%d at %I:%M %p") %>">
-                <%= @appointment.time.strftime("%I:%M %p") %>
-        </time>
-    </h5>
-    <h5 class="subtitle is-5">
-        <%= @appointment.notes %>
-    </h5>
-    </div>
-  </div>
+<h1> Your Appointment </h1>
 
-  <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot">
-    <nav class="tabs is-boxed is-fullwidth">
-      <div class="container">
-        <ul>
-        <%= link_to "Log Out", logout_path, method: :delete %>
-        <%= link_to "New Appointment", new_appointment_path %>
-        <%= link_to "My Appointments", appointments_path %>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</section>
+<br>
+<br>
+<h2> <%= @appointment.date %> </h2>
+
+  <!-- Footer-->
+<div>
+  <%= link_to "Log Out", logout_path, method: :delete %>
+  <%= link_to "New Appointment", new_appointment_path %>
+  <%= link_to "My Appointments", appointments_path %>
+  <%= link_to "Doctors", doctors_path %>
+</div>
