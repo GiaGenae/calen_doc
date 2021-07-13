@@ -1,24 +1,11 @@
-# README
+# CalenDOC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CalenDOC is an app created for a user to manage all his or her medical appointments, by date or by physician. 
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Start this application by running `bundle` then `rails s`. After, open localhost:3000 in your browser and enjoy! 
 
-* System dependencies
+## License
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MIT License 

@@ -1,19 +1,49 @@
-<h1>My Appointments </h1>
+<p><%= flash[:error] %></p>
 
-<div class="container has-text-centered">
-  <h4>
-    <% @appointments.each do |a| %>
-      <%= link_to a.date, appointment_path(a.id) %>
-    <% end %>
-  </h4>
-    <br>
-    <br>
-</div>
+<section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+      </div>
+    </header>
+  </div>
 
-  <!-- Footer-->
-<div>
-  <%= link_to "Log Out", logout_path, method: :delete %>
-  <%= link_to "New Appointment", new_appointment_path %>
-  <%= link_to "My Appointments", appointments_path %>
-  <%= link_to "Doctors", doctors_path %>
-</div>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+      <p class="title">
+        <%= current_user.first_name %>'s Appointments
+      </p>
+      <br>
+      <br>
+      <div class="container has-text-centered">
+        <h4>
+          <% @appointments.each do |a| %>
+            <%= link_to a.date, appointment_path(a.id) %>
+          <% end %>
+        </h4>
+        <br>
+        <br>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+            <%= link_to "New Appointment", new_appointment_path %>
+            <%= link_to "Doctors", doctors_path %>
+            <%= link_to "Logout", logout_path %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>

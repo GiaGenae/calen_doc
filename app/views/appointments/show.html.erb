@@ -1,13 +1,46 @@
-<h1> Your Appointment </h1>
+<p><%= flash[:error] %></p>
 
-<br>
-<br>
-<h2> <%= @appointment.date %> </h2>
+<section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+      </div>
+    </header>
+  </div>
 
-  <!-- Footer-->
-<div>
-  <%= link_to "Log Out", logout_path, method: :delete %>
-  <%= link_to "New Appointment", new_appointment_path %>
-  <%= link_to "My Appointments", appointments_path %>
-  <%= link_to "Doctors", doctors_path %>
-</div>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        <%= @appointment.date %>
+      </p>
+      <br>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+            <%= link_to "New Appointment", new_appointment_path %>
+            <%= link_to "Appointments", appointments_path %>
+            <%= link_to "Doctors", doctors_path %>
+            <%= link_to "Logout", logout_path %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+
+
+
+
