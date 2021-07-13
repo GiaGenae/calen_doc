@@ -27,7 +27,7 @@
         <div class="container has-text-centered">
           <h4>
               <% @doctors.each do |d| %>
-                <ul>Dr. <%= d.first_name %> <%= d.last_name %> - <%= d.specialty %>  
+                <ul>Dr. <%= d.first_name %> <%= d.last_name %> - <%= d.specialty %>
                 <br>
                 <button class="button is-light">
                   <%= link_to "Rate this doctor.", new_doctor_review_path(d.id)%></ul>
