@@ -38,13 +38,8 @@
     </div>
     <br>
     <br>
-      <form action="/appointments/<%=@appointment.id%>/edit" method="get">
-        <input type="submit" value="Edit">
-      </form>
-      <form action="/appointments/<%=@apppointment.id %>" method="post">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-      </form>
+
+    <%= link_to "Edit", edit_appointment_path(@appointment) if @appointment.user == current_user%>
   </div>
 
   <!-- Hero footer: will stick at the bottom -->

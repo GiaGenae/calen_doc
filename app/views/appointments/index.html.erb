@@ -26,11 +26,9 @@
       <div class="content"
         <div class="container has-text-centered">
           <h4>
-            <ol>
               <% @appointments.each do |a| %>
-                <%= link_to a.date, appointment_path(a.id) %>
+                <ul><%= link_to a.date, appointment_path(a.id) %></ul
               <% end %>
-              </ol>
           </h4>
         </div>
     </div>

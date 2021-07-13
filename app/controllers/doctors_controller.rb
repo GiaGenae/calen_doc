@@ -6,4 +6,5 @@ class DoctorsController < ApplicationController
         @doctors = Doctor.all
     end
 
+
 end

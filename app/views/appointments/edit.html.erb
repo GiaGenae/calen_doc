@@ -18,19 +18,14 @@
 
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
+    <div class="container has-text-centered">
       <p class="title">
-        Doctors
+      Please complete New Appointment form below.
       </p>
       <br>
-      <br>
-      <div class="content"
-        <div class="container has-text-centered">
-          <h4>
-              <% @doctors.each do |d| %>
-                <ul>Dr. <%= d.last_name %> - <%= d.specialty %>  <%= link_to "Rate this doctor.", new_doctor_review_path(d.id)%></ul>
-              <% end %>
-          </h4>
-        </div>
+    </div>
+    <div>
+      <%= render partial: 'form'%>
     </div>
   </div>
 
@@ -40,10 +35,16 @@
       <div class="container">
         <ul>
             <%= link_to "New Appointment", new_appointment_path %>
-            <%= link_to "Appointments", doctors_path %>
+            <%= link_to "Appointments", appointments_path %>
+            <%= link_to "Doctors", doctors_path %>
             <%= link_to "Logout", logout_path %>
         </ul>
       </div>
     </nav>
   </div>
 </section>
+
+
+
+
+
