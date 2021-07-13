@@ -27,7 +27,11 @@
         <div class="container has-text-centered">
           <h4>
               <% @doctors.each do |d| %>
-                <ul>Dr. <%= d.last_name %> - <%= d.specialty %>  <%= link_to "Rate this doctor.", new_doctor_review_path(d.id)%></ul>
+                <ul>Dr. <%= d.first_name %> <%= d.last_name %> - <%= d.specialty %>  
+                <br>
+                <button class="button is-light">
+                  <%= link_to "Rate this doctor.", new_doctor_review_path(d.id)%></ul>
+                </button>
               <% end %>
           </h4>
         </div>
@@ -40,7 +44,7 @@
       <div class="container">
         <ul>
             <%= link_to "New Appointment", new_appointment_path %>
-            <%= link_to "Appointments", doctors_path %>
+            <%= link_to "Appointments", appointments_path %>
             <%= link_to "Logout", logout_path %>
         </ul>
       </div>
