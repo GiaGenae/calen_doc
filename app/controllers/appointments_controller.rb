@@ -19,7 +19,7 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        @appointments = Appointment.all
+        @appointments = Appointment.all.order("date ASC")
     end
 
     def show
