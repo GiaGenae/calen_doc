@@ -22,8 +22,29 @@
       <p class="title">
         <%= @appointment.date %>
       </p>
+      <p>
+        <h1>Dr. <%= @appointment.doctor.last_name %></h1>
+      </p>
+      <p>
+        <h1><%= @appointment.doctor.specialty %></h1>
+      </p>
+      <p>
+        <h1><%= @appointment.time %></h1>
+      </p>
+      <p>
+        <h1><%= @appointment.notes %></h1>
+      </p>
       <br>
     </div>
+    <br>
+    <br>
+      <form action="/appointments/<%=@appointment.id%>/edit" method="get">
+        <input type="submit" value="Edit">
+      </form>
+      <form action="/appointments/<%=@apppointment.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+      </form>
   </div>
 
   <!-- Hero footer: will stick at the bottom -->

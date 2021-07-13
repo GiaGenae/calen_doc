@@ -23,14 +23,16 @@
       </p>
       <br>
       <br>
-      <div class="container has-text-centered">
-        <h4>
-          <% @appointments.each do |a| %>
-            <%= link_to a.date, appointment_path(a.id) %>
-          <% end %>
-        </h4>
-        <br>
-        <br>
+      <div class="content"
+        <div class="container has-text-centered">
+          <h4>
+            <ol>
+              <% @appointments.each do |a| %>
+                <%= link_to a.date, appointment_path(a.id) %>
+              <% end %>
+              </ol>
+          </h4>
+        </div>
     </div>
   </div>
 

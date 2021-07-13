@@ -1,0 +1,82 @@
+<p><%= flash[:error] %></p>
+
+<section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+      Please complete New Appointment form below.
+      </p>
+      <br>
+    </div>
+    <div>
+      <%= simple_form_for @appointment do |f| %>
+      <p><%= f.input :date, input_html: { class: 'date' }, wrapper: false, label_html: { class: 'label'} %></p>
+      <p><%= f.input :time, input_html: { class: 'time' }, wrapper: false, label_html: { class: 'label'} %></p>
+      <p><%= f.input :notes, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label'} %></p>
+      Select a doctor
+        <%= f.collection_select :doctor_id, Doctor.all, :id, :first_name, input_html: { class: 'time' }, wrapper: false, label_html: { class: 'label'} %>
+        <br>
+        <br>
+      Or add doctor here
+      <br>
+      <br>
+      <%= f.fields_for :doctor do |d| %> 
+        <%=d.label :first_name %>
+        <%=d.text_field :first_name %>
+        <br>
+        <br>
+        <%=d.label :last_name %>
+        <%=d.text_field :last_name %>
+        <br>
+        <br>
+        <%=d.label :email %>
+        <%=d.text_field :email %>
+        <br>
+        <br>
+        <%=d.label :specialty %>
+        <%=d.text_field :specialty %>
+    <% end %>
+    <br>
+    <br>
+    <br>
+    <br>
+        <%= f.button :submit, class: "button is-primary" %>
+    <% end %>
+  </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+            <%= link_to "New Appointment", new_appointment_path %>
+            <%= link_to "Appointments", appointments_path %>
+            <%= link_to "Doctors", doctors_path %>
+            <%= link_to "Logout", logout_path %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+
+
+
+
+
