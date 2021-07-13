@@ -45,20 +45,12 @@
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
+            <%= link_to "New Appointment", new_appointment_path %>
+            <%= link_to "Appointments", appointments_path %>
+            <%= link_to "Doctors", doctors_path %>
+            <%= link_to "Logout", logout_path %>
         </ul>
       </div>
     </nav>
   </div>
 </section>
-
-
-<%= simple_form_for @review do |f|%>
-    <div>
-        <%= f.label :rating %>
-        <%= f.text_field :rating %>
-    </div>
-    <%= f.hidden_field :doctor_id %>
-  
-  
-    <%= f.submit %>
-  <% end %>

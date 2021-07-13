@@ -1,5 +1,7 @@
 <p><%= flash[:error] %></p>
 
+
+
 <section class="hero is-success is-fullheight">
   <!-- Hero head: will stick at the top -->
   <div class="hero-head">
@@ -27,12 +29,13 @@
         <div class="container has-text-centered">
           <h4>
               <% @appointments.each do |a| %>
-                <ul><%= link_to a.date, appointment_path(a.id) %></ul
+                <ol><%= link_to a.date.strftime("%B %d, %Y"), appointment_path(a.id) %></ol>
               <% end %>
           </h4>
         </div>
     </div>
   </div>
+
 
   <!-- Hero footer: will stick at the bottom -->
   <div class="hero-foot">
