@@ -1,38 +1,14 @@
-  <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
-    <div class="container has-text-centered">
-        <h2 class="title is-2">
-            Doctors
-        </h2>
-    </div>
-  
-# Correctly displayed information
-    <div class="container has-text-centered">
-        <ul>
-        <li><h4 class="subtitle is-4">
-            <% @doctors.each do |d| %>
-              Dr. <%= link_to d.last_name, doctor_path(d.id) %>
+<h1> Doctors </h1>
+  <p>
+    <% @doctors.each do |d| %>
+      Dr. <%= link_to d.last_name, doctor_path(d.id) %>
+    <% end %></li>
+  </p>
 
-            <% end %></li><br />
-        </h4>
-        </ul>
-        </div>
-    <br>
-    <br>
-    </div>
-  </div>
-
-  <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot">
-    <nav class="tabs is-boxed is-fullwidth">
-      <div class="container">
-        <ul>
-        <%= link_to "Log Out", logout_path, method: :delete %>
-        <%= link_to "New Appointment", new_appointment_path %>
-        <%= link_to "My Appointments", appointments_path %>
-        <%= link_to "Doctors", doctors_path %>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</section>
+<br>
+<div>
+  <%= link_to "Log Out", logout_path, method: :delete %>
+  <%= link_to "New Appointment", new_appointment_path %>
+  <%= link_to "My Appointments", appointments_path %>
+  <%= link_to "Doctors", doctors_path %>
+</div>

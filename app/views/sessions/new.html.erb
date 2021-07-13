@@ -1,12 +1,48 @@
 <p><%= flash[:error] %></p>
 
-<p class="title">
-  Please login below.
-</p>
-  <%= simple_form_for (:user) do |f| %>
-    <%= f.input :email, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label'} %>
-    <%= f.input :password, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label'} %>
-        <br>
-        <br>
-        <%= f.button :submit, "Login", class: "button is-primary" %>
-    <% end %>
+<section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        Please login below.
+      </p>
+      <%= simple_form_for (:user) do |f| %>
+        <%= f.input :email, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label'} %>
+        <%= f.input :password, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label'} %>
+            <br>
+            <br>
+            <%= f.button :submit, "Login", class: "button is-primary" %>
+        <% end %>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+      <%= link_to "Home", root_path %>
+			<%= link_to "Login", login_path %>
+			<%= link_to "Signup", signup_path %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+
