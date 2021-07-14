@@ -1,0 +1,49 @@
+<section class="hero is-success is-fullheight">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+      <p class="title">
+        Reviews
+      </p>
+      <br>
+      <br>
+      <div class="content"
+        <div class="container has-text-centered">
+          <h4>
+              <% @reviews.each do |r| %>
+                <ul> <%= r.rating %> - <%= r.notes %></ul>
+                <br>
+                <br>
+              <% end %>
+          </h4>
+        </div>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+            <%= link_to "New Appointment", new_appointment_path %>
+            <%= link_to "Appointments", appointments_path %>
+            <%= link_to "Logout", logout_path %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
