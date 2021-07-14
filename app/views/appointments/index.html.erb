@@ -29,7 +29,7 @@
         <div class="container has-text-centered">
           <h4>
               <% @appointments.each do |a| %>
-                <ol><%= link_to a.date.strftime("%B %d, %Y"), appointment_path(a.id) %></ol>
+                <ol><strong><%= link_to a.date.strftime("%B %d, %Y"), appointment_path(a.id) %></strong></ol>
               <% end %>
           </h4>
         </div>

@@ -1,4 +1,4 @@
-<p><%= flash[:error] %></p>
+
 
 <section class="hero is-success is-fullheight">
   <!-- Hero head: will stick at the top -->
@@ -19,10 +19,11 @@
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
       <p class="title">
-      Please complete New Appointment form below.
+        Please complete New Appointment form below.
       </p>
-      <br>
-      <br>
+      <p
+      <strong><%= render partial: 'layouts/errors', locals: {object: @appointment} %></strong>
+      </p>
     <div>
       <%= render partial: 'form'%>
     </div>
