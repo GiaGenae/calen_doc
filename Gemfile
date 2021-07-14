@@ -38,7 +38,12 @@ gem 'bulma', '~> 0.1.0'
 gem 'simple_form', '~> 5.1'
 
 # Bcrpyt for password
-gem 'bcrypt', '~> 3.1.7' 
+gem 'bcrypt', '~> 3.1.7'
+
+# Omniauth for third party authorization
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

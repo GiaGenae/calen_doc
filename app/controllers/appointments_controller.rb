@@ -33,6 +33,11 @@ class AppointmentsController < ApplicationController
         redirect_to appointment_path(@appointment)
     end
 
+    def destroy
+        Appointment.find(params[:id]).destroy
+        redirect_to appointments_path
+    end
+
 
     private
 
