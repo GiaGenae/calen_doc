@@ -7,5 +7,8 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    validates :email, uniqueness: true, presence: true
+    validates :first_name, uniqueness: true, presence: true
+    validates :last_name, uniqueness: true, presence: true
+    validates :email, presence: true, uniqueness: true, format: {with: /\A(?<username>[^@\s]+)@((?<domain_name>[-a-z0-9]+)\.(?<domain>[a-z]{2,}))\z/i}
+    validates :password, length: {in: 8..100}
 end

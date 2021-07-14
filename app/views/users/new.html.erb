@@ -1,5 +1,3 @@
-<p><p><%= render 'layouts/errors', locals: {object: @user} %></p></p>
-
 <section class="hero is-success is-fullheight">
   <!-- Hero head: will stick at the top -->
   <div class="hero-head">
@@ -7,6 +5,7 @@
       <div class="container">
         <div class="navbar-brand">
           <span class="navbar-burger" data-target="navbarMenuHeroC">
+          <p><%= render partial: 'layouts/errors', locals: {object: @user} %></p>
             <span></span>
             <span></span>
             <span></span>
