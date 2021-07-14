@@ -39,7 +39,7 @@
     <br>
     <br>
 
-    <%= link_to "Edit", edit_appointment_path(@appointment) if @appointment.user == current_user%>
+    <%= link_to "Edit", edit_appointment_path(@appointment)%>
     <%= link_to "Delete", appointment_path(@appointment), method: :delete %> 
   </div>
 

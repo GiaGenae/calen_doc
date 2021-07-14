@@ -2,6 +2,7 @@ class AppointmentsController < ApplicationController
 
     before_action :set_appointment, only:[:show, :edit, :update]
     before_action :redirect_if_not_logged_in
+    
     def new
         @appointment = Appointment.new
         @appointment.build_doctor
@@ -10,6 +11,7 @@ class AppointmentsController < ApplicationController
     def create
         @appointment = Appointment.new(appointment_params)
         @appointment.user_id = session[:user_id]
+        
         if @appointment.save    
             redirect_to appointment_path(@appointment)
         else
@@ -19,7 +21,11 @@ class AppointmentsController < ApplicationController
     end
 
     def index
-        @appointments = Appointment.all.order("date ASC")
+        if current_user
+            @appointments = @current_user.appointments.all.order("date ASC")
+        else
+            render :new
+        end
     end
 
     def show
@@ -29,8 +35,11 @@ class AppointmentsController < ApplicationController
     end
 
     def update
-        @appointment.update(appointment_params)
-        redirect_to appointment_path(@appointment)
+        if @appointment.update(appointment_params)
+            redirect_to appointment_path(@appointment)
+        else
+            render edit
+        end
     end
 
     def destroy
