@@ -42,7 +42,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Omniauth for third party authorization
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 
 group :development, :test do
