@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    before_action :redirect_if_not_logged_in
 
     def new 
         @doctor = Doctor.find_by_id(params[:doctor_id])
@@ -17,11 +18,15 @@ class ReviewsController < ApplicationController
 
 
     def show
-        @review = Review.find_by_id(params[:id])
+        
     end
 
     def index
-        @reviews = Review.all
+        if @doctor = Doctor.find_by_id(params[:doctor_id])
+            @reviews = @doctor.reviews
+        else
+            @reviews = Review.all.order("rating DESC")
+        end
     end
 
     def review_params

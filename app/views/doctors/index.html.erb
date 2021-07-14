@@ -29,7 +29,10 @@
                 <br>
                 <br>
                 <button class="button is-light">
-                  <%= link_to "Rate this doctor.", new_doctor_review_path(d.id)%></ul>
+                  <%= link_to "Leave a review for this doctor", new_doctor_review_path(d.id)%>
+                </button>
+                <button class="button is-light">
+                  <%= link_to "Read Reviews", doctor_reviews_path(d.id)%></ul>
                 </button>
               <% end %>
           </h4>
