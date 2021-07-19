@@ -2,10 +2,12 @@ class AppointmentsController < ApplicationController
 
     before_action :set_appointment, only:[:show, :edit, :update]
     before_action :redirect_if_not_logged_in
+
+    # scope :filter_by_specialty, -> (specialty) { where specialty: specialty }
     
     def new
         @appointment = Appointment.new
-        # @appointment.build_doctor
+        @appointment.build_doctor
     end
 
     def create

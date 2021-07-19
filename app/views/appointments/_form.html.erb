@@ -22,41 +22,41 @@
       <br>
     </div>
         <div>
-        <%= simple_form_for @appointment do |f| %>
-        <p><%= f.input :date, input_html: { class: 'date' }, wrapper: false, label_html: { class: 'label'} %></p>
-        <p><%= f.input :time, input_html: { class: 'time' }, wrapper: false, label_html: { class: 'label'} %></p>
-        <p><%= f.input :notes, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label'} %></p>
-        Select a doctor
-            <%= f.collection_select :doctor_id, Doctor.all, :id, :first_name, input_html: { class: 'time' }, wrapper: false, label_html: { class: 'label'} %>
+          <%= simple_form_for @appointment do |f| %>
+            <p><%= f.input :date, input_html: { class: 'date' }, wrapper: false, label_html: { class: 'label'} %></p>
+            <p><%= f.input :time, input_html: { class: 'time' }, wrapper: false, label_html: { class: 'label'} %></p>
+            <p><%= f.input :notes, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label'} %></p>
+            Select a doctor
+              <%= f.collection_select :doctor_id, Doctor.all, :id, :first_name, include_blank: 'Select One', input_html: { class: 'time' }, wrapper: false, label_html: { class: 'label'} %>
+              <br>
+              <br>
+            Or add doctor here
             <br>
             <br>
-        Or add doctor here
-        <br>
-        <br>
-        <%= f.fields_for :doctor do |d| %> 
-            <%=d.label :first_name %>
-            <%=d.text_field :first_name %>
+            <%= f.fields_for :doctor do |d| %> 
+              <%=d.label :first_name %>
+              <%=d.text_field :first_name %>
+              <br>
+              <br>
+              <%=d.label :last_name %>
+              <%=d.text_field :last_name %>
+              <br>
+              <br>
+              <%=d.label :email %>
+              <%=d.text_field :email %>
+              <br>
+              <br>
+              <%=d.label :specialty %>
+              <%=d.text_field :specialty %>
+            <% end %>
             <br>
             <br>
-            <%=d.label :last_name %>
-            <%=d.text_field :last_name %>
             <br>
             <br>
-            <%=d.label :email %>
-            <%=d.text_field :email %>
-            <br>
-            <br>
-            <%=d.label :specialty %>
-            <%=d.text_field :specialty %>
-        <% end %>
-        <br>
-        <br>
-        <br>
-        <br>
             <%= f.button :submit, class: "button is-primary" %>
         <% end %>
+      </div>
     </div>
-  </div>
   <br>
 </section>
 
