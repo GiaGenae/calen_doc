@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_112655) do
+ActiveRecord::Schema.define(version: 2021_07_19_114120) do
 
   create_table "appointments", force: :cascade do |t|
     t.string "appointment_type"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2021_07_19_112655) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "google_token"
     t.string "google_refresh_token"
+    t.string "uid"
+    t.string "provider"
   end
 
   add_foreign_key "appointments", "doctors"
