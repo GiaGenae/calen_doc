@@ -5,7 +5,7 @@ class AppointmentsController < ApplicationController
     
     def new
         @appointment = Appointment.new
-        @appointment.build_doctor
+        # @appointment.build_doctor
     end
 
     def create

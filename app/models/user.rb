@@ -11,4 +11,11 @@ class User < ApplicationRecord
     validates :last_name, uniqueness: true, presence: true
     validates :email, presence: true, uniqueness: true, format: {with: /\A(?<username>[^@\s]+)@((?<domain_name>[-a-z0-9]+)\.(?<domain>[a-z]{2,}))\z/i}
     validates :password, length: {in: 8..100}
+
+    def self.from_omniauth(auth)
+        where(email: auth.info.email).first_or_initialize do |user|
+          user.email = auth.info.email
+          user.password = SecureRandom.hex
+        end
+    end
 end

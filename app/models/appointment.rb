@@ -8,8 +8,9 @@ class Appointment < ApplicationRecord
     # validate :no_duplicate
     # validates :appointment, uniqueness: { scope: :date, :doctor, message: " %date already has an appointment with that doctor."}
 
-    def doctor_attributes(attributes)
-        doctor = Doctor.find_or_create_by(attributes) if !attributes['first_name'].empty?
+    def doctor_attributes=(attributes)
+        self.doctor = Doctor.find_or_create_by(attributes) if !attributes['first_name'].empty?
+        self.doctor
     end
 
     # def no_duplicate
