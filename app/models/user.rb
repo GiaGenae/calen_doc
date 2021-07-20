@@ -20,7 +20,7 @@ class User < ApplicationRecord
         end
     end
 
-    def self.create_by_google_omniauth
+    def self.create_by_google_omniauth(auth)
       self.find_or_create_by(email: auth[:info][:email]) do |u|
         u.password = SecureRandom.hex
       end
