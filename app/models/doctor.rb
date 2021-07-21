@@ -7,4 +7,8 @@ class Doctor < ApplicationRecord
         "#{first_name} #{last_name} - #{specialty}"
     end
 
+    def self.alpha
+        order.(:specialty)
+    end
+
 end
