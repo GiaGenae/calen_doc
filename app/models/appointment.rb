@@ -12,10 +12,4 @@ class Appointment < ApplicationRecord
         self.doctor = Doctor.find_or_create_by(attributes) if !attributes['first_name'].empty?
         self.doctor
     end
-
-    # def no_duplicate
-    #     if Appointment.find_by(date: date, doctor_id: doctor_id)
-    #         errors.add(:date, "already has an duplicate appointment. Please review.")
-    #     end
-    # end
 end
