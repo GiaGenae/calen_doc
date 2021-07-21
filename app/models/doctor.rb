@@ -3,4 +3,8 @@ class Doctor < ApplicationRecord
     has_many :reviews
     has_many :users, through: :appointments
 
+    def name_and_specialty
+        "#{first_name} #{last_name} - #{specialty}"
+    end
+
 end
