@@ -9,6 +9,4 @@ Start this application by running `bundle` then `rails s`. After, open localhost
 ## License
 
 MIT License 
-=======
-MIT License 
->>>>>>> 15b0fa61db440c51d32ba01f316f644e6da4e7b4
+
