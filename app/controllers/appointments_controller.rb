@@ -31,10 +31,11 @@ class AppointmentsController < ApplicationController
     end
 
     def show
+        set_appointment 
     end
 
     def edit
-        @appointment = Appointment.find_by_id(params[:id])
+        set_appointment
     end
 
     def update
