@@ -34,6 +34,7 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
+        @appointment = Appointment.find_by_id(params[:id])
     end
 
     def update
