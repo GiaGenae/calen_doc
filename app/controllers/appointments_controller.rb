@@ -24,7 +24,7 @@ class AppointmentsController < ApplicationController
 
     def index
         if current_user
-            @appointments = @current_user.appointments.all.order("date ASC")
+            @appointments = @current_user.appointments.all
         else
             render :new
         end

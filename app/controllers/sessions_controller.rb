@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
             redirect_to user_path(@user)
         else
         @user = User.find_by(email: params[:user][:email])
-            if @user.try(:authenticate, params[:user][:password])
+            if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
             else
@@ -29,14 +29,9 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        user = User.create_by_google_omniauth(auth)
-        if user.valid?
-            session[:user_id]
-            redirect_to user_path
-        else
-            flash[:danger] = user.errors.full_messages.join(", ")
-            redirect_to login_path
-        end
+        @user = User.create_by_google_omniauth(auth)
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
     end
     
     private
