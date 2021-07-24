@@ -7,20 +7,14 @@ class SessionsController < ApplicationController
     end
 
     def create
-        if params[:provider] == "google_oauth2"
-          @user = User.from_omniauth(response)
-          session[:user_id] = @user.id
-          redirect_to user_path(@user)
-        else
-          @user = User.find_by(email: params[:user][:email])
-    
-          if @user && @user.authenticate(params[:user][:password])
+        @user = User.find_by(email: params[:user][:email])
+
+        if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
-          else
+        else
             flash[:error] = "Invalid credentials. Please try again."
             redirect_to login_path
-          end
         end
     end
 
@@ -29,20 +23,26 @@ class SessionsController < ApplicationController
         redirect_to '/'
     end
 
-    def omniauth 
-        user = User.from_omniauth(request.env['omniauth.auth'])
-        if user.valid?
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+    def omniauth
+        @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
+          user.first_name = auth["info"]["first_name"]
+          user.last_name = auth["info"]["last_name"]
+          user.email = auth["info"]["email"]
+          user.password = SecureRandom.hex(10)
+        end
+        if @user.valid?
+          session[:user_id] = @user.id
+          redirect_to user_path(@user)
         else
             flash[:error] = "Google authorization was not successful."
-            redirect_to '/login'
+            redirect_to "/"
         end
-    end
+      end
     
     private
     
-    # def auth
-    #     request.env['omniauth.auth']
-    # end
+    def auth
+        request.env['omniauth.auth']
+    end
 end
+

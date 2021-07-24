@@ -31,14 +31,17 @@ class AppointmentsController < ApplicationController
     end
 
     def show
-        set_appointment 
+        @appointment = Appointment.find_by_id(params[:id])
+        redirect_to appointment_path if !@appointment
     end
 
     def edit
-        set_appointment
+        @appointment = Appointment.find_by_id(params[:id])
+        redirect_to appointment_path if !@appointment || @appointment.user != current_user
     end
 
     def update
+        @appointment = Appointment.find_by_id(params[:id])
         if @appointment.update(appointment_params)
             redirect_to appointment_path(@appointment)
         else

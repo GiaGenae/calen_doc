@@ -4,13 +4,14 @@ Rails.application.routes.draw do
 
   resources :users
   
-  get '/auth/:provider/callback' => 'sessions#omniauth'
+  
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/:provider/callback' => 'sessions#omniauth'
   
   resources :reviews
   resources :appointments
