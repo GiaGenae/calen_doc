@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -37,17 +37,13 @@ gem 'bulma', '~> 0.1.0'
 # Form builder
 gem 'simple_form', '~> 5.1'
 
-# Bcrpyt for password
-gem 'bcrypt', '~> 3.1.7'
 
 # Omniauth for third party authorization
 gem 'omniauth'
+# gem "omniauth-twitter", "~> 1.4"
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
 
-
-# Devise
-gem 'devise'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -77,3 +73,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+

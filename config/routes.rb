@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
   root 'sessions#welcome'
-
-  resources :users
-  
   
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -11,8 +8,9 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
 
-  get '/auth/:provider/callback' => 'sessions#omniauth'
+  get '/auth/:provider/callback' => 'sessions#create'
   
+  resources :users
   resources :reviews
   resources :appointments
   resources :doctors, only: [:index]
