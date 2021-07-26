@@ -10,7 +10,8 @@ class ReviewsController < ApplicationController
         @review = current_user.reviews.build(review_params)
         
         if @review.save
-            redirect_to doctor_reviews_path(@review)
+            Doctor.find_by_id(params[:doctor_id])
+            redirect_to review_path(@review)
         else
             render :new
         end
@@ -18,7 +19,7 @@ class ReviewsController < ApplicationController
 
 
     def show
-        
+        @review = Review.find_by_id(params[:id])
     end
 
     def index

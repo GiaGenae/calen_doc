@@ -15,18 +15,16 @@ class UsersController < ApplicationController
     end
 
     def show
-        redirect_if_not_logged_in
         @user = User.find_by_id(params[:id])
-        redirect_to "/" if !@user
     end
+
+    # def appointment_count
+    #     Appointment.all.count
+    # end
 
     private
 
     def user_params
         params.require(:user).permit(:first_name, :last_name, :email, :password)
-    end
-
-    def appointment_count
-        Appointment.all.count
     end
 end

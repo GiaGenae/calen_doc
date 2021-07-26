@@ -1,5 +1,3 @@
-<p><%= flash[:error] %></p>
-
 <section class="hero is-success is-fullheight">
   <!-- Hero head: will stick at the top -->
   <div class="hero-head">
@@ -18,13 +16,22 @@
 
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
-    <div class="container has-text-centered">
       <p class="title">
-      Welcome, <%= @user.first_name %>
+        Reviews
+        <br>
+        <br>
+        <strong>Dr. <%= @review.doctor.first_name %> <%= @review.doctor.last_name %> - <strong><%= @review.doctor.specialty %></strong>
       </p>
       <br>
       <br>
-      Please use the menu below to navigate the app.
+      <div class="content"
+        <div class="container has-text-centered">
+            <h4>
+                <%= @review.rating %> - <%= @review.notes %>
+            </h4>
+            <br>
+          </h4>
+        </div>
     </div>
   </div>
 
@@ -42,6 +49,3 @@
     </nav>
   </div>
 </section>
-
-
-
