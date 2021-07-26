@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
         end
     end
 
-
     def destroy
         session.delete(:user_id)
         redirect_to '/'
@@ -37,6 +36,10 @@ class SessionsController < ApplicationController
             flash[:error] = "Google authorization was not successful."
             redirect_to "/"
         end
+    end
+
+    def omniauth
+        binding.pry
     end
     
     private

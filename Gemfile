@@ -40,7 +40,7 @@ gem 'simple_form', '~> 5.1'
 
 # Omniauth for third party authorization
 gem 'omniauth'
-# gem "omniauth-twitter", "~> 1.4"
+# gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-google-oauth2'
 
@@ -74,3 +74,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'thin'
